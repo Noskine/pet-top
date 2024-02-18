@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  Id       String  @id @default(uuid()) @map("id")
+  Email    String  @unique
+  Password String
+  Name     String
+  IsAdmin  Boolean
+  Sale     Sale[]
+}
+
+model Client {
+  Id       String @id @default(uuid()) @map("id")
+  Name     String
+  Email    String @unique
+  Password String
+  Sale     Sale[]
+}
+
+model Sale {
+  Id         String   @id @default(uuid()) @map("id")
+  Client     Client   @relation(fields: [ClientId], references: [Id])
+  ClientId   String
+  Employee   Employee @relation(fields: [EmployeeId], references: [Id])
+  EmployeeId String
+  Item       Item[]
+}
+
+model Item {
+  Id        String  @id @default(uuid()) @map("id")
+  Product   Product @relation(fields: [ProductId], references: [Id])
+  ProductId String
+  Sale      Sale    @relation(fields: [SaleId], references: [Id])
+  SaleId    String
+}
+
+model Product {
+  Id          String   @id @default(uuid()) @map("id_product")
+  Name        String   @map("product_name")
+  Description String   @map("description")
+  Photo       String   @map("photo_product")
+  Price       Decimal  @map("price_product")
+  Category    Category @relation(fields: [CategoryId], references: [Id])
+  CategoryId  String   @map("category_id")
+  Item        Item[]
+}
+
+model Category {
+  Id      String    @id @default(uuid()) @map("id_category")
+  Name    String    @unique @map("category_name")
+  Product Product[]
+}
