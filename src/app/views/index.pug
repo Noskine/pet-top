@@ -1,0 +1,61 @@
+doctype html
+html(lang='pt-br')
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    title Home | PetTopStore   
+
+    style 
+      include ../../../public/style/index.css 
+      include ../../../public/style/home.css 
+
+    script(src="https://code.jquery.com/jquery-3.7.0.js") 
+    script
+      include ../../../public/scripts/index.js
+  body
+    header 
+      a(href="/")
+        h1 PetTopStore 
+      nav
+        ul
+          li
+            a(href="#") Notas 
+          li
+            a#productClick Criar produtos
+          li
+            a#logout(href="/auth/sign_out") Logout  
+    main
+      h2 Gerenciamento de produtos
+      table 
+        thead 
+          tr
+            th Nome do Produto
+            th Descrição 
+            th Categoria
+            th Preço
+        tbody 
+            each v in Products
+              tr
+                td=v.Name
+                td#descript=v.Description
+                td=v.Category.Name
+                td=v.Price
+
+    section#createProduct 
+      h2 Criar produto
+
+      form(method="POST" action="/api/product") 
+        fieldset 
+          input(type="text", name="name", placeholder="Digite o nome do produto")
+          input(type="text", name="description", placeholder="Descrição")
+          input(type="text", name="price", placeholder="Preço")        
+          input(type="url", name="image", placeholder="Imagem/URL")
+
+          select(name="category") 
+            each val in CategoryRender
+              option(value=val.Id)=val.Name
+
+        input#submiteProductCreate(type="submit", value="Criar produto") 
+       
+      

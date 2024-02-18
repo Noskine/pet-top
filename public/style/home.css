@@ -1,0 +1,132 @@
+header {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #0496cb;
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.089) 1.95px 1.95px 2.6px;
+}
+
+header a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #0496cb;
+    text-shadow: rgba(0, 0, 0, 0.089) 1.95px 1.95px 2.6px;
+}
+
+header a:hover {
+    color: #017eab;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#logout {
+    background-color: #0496cb;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid #0496cb;
+    transition: 300ms;
+}
+
+#logout:hover {
+    background-color: transparent;
+    color: #0496cb;
+    transition: 300ms;
+}
+
+main {
+    color: #0496cb;
+    padding: 10px 15px;
+}
+
+#createProduct {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 90vw;
+    height: 80vh;
+    background-color: #eee;
+    padding: 10px 40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 2.95px 5.6px;
+    border-radius: 1rem;
+}
+
+#createProduct h2 {
+    line-height: 60px;
+}
+
+#createProduct h3 {
+    line-height: 40px;
+}
+
+input,
+select {
+    background-color: #dadada !important;
+}
+
+#submiteProductCreate {
+    background-color: #0496cb !important;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+#submiteProductCreate:hover {
+    background-color: #017eab !important;
+    transition: 300ms;
+}
+
+#productClick {
+    cursor: pointer;
+}
+
+.show {
+    display: block !important;
+}
+
+h2 {
+    line-height: 40px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    font-weight: 600;
+}
+
+td,
+th {
+    border: 1px solid #b1b1b1;
+    font-weight: 500;
+    color: #212121;
+    padding: 2px 5px;
+}
+
+th {
+    background-color: #cecece;
+    color: #fff;
+    text-align: start;
+}
+
+#descript {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
