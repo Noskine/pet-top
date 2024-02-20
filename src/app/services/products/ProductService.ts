@@ -1,5 +1,4 @@
 import Product from "../../models/Product/Product";
-import { Decimal } from "@prisma/client/runtime/library";
 
 interface RequestDataCreateProduct {
   name: string;

@@ -9,7 +9,6 @@ main {
     width: 60%;
     height: inherit;
     object-fit: cover;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 #form-container {
@@ -57,6 +56,11 @@ a:hover {
     text-align: center;
     font-size: 0.8rem;
     color: #bd022a;
+}
+
+input:hover {
+    background-color: #cacaca;
+    transition: 300ms all;
 }
 
 @media screen and (max-width: 820px) {

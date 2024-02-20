@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $("#productClick").click(function(){
+$(document).ready(function() {
+    $("#productClick").click(function() {
         $("#createProduct").toggle(300);
     });
 });

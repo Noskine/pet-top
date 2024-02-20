@@ -1,3 +1,4 @@
+import { Product } from "@prisma/client";
 import { Prisma } from "../../../lib/prisma";
 import { CreateProductInterface } from "./ProductInterfaces";
 
@@ -32,7 +33,7 @@ class ModelProduct {
 
   public async findAll() {
     try {
-      const product = await Prisma.product.findMany({ 
+      const product = await Prisma.product.findMany({
         include: {
           Category: true,
         },

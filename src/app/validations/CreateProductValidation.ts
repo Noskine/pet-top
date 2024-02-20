@@ -11,7 +11,7 @@ const schema = zod.object({
 export default function CreateProductValidation(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   const valid = schema.safeParse(req.body);
   if (!valid.success) {
