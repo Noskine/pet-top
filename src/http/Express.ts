@@ -32,12 +32,14 @@ App.use(express.static(join(__dirname, "..", "..", "public")));
 import Routes from "../routes/routes";
 import AuthRoutes from "../routes/auth/authRoutest";
 import RequireAuth from "./middlewares/RequireAuth";
+import { routerApi } from "../routes/api/RouterApi";
 
 App.use("/auth", AuthRoutes);
+App.use("/api", routerApi);
 App.use("/", [RequireAuth], Routes);
 
 App.get("/auth/get", (req, res) => {
-  //@ts-expect-error
+  //@ts-ignore
   const b = req.session!.UserId;
   const a = res.locals.employee;
   res.send({

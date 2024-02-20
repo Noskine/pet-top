@@ -31,10 +31,19 @@ async function main() {
     ],
   });
 
+  const client = await prisma.client.create({
+    data: {
+      Email: "gaba.co@gmail.com",
+      Name: "Gaby Alvez",
+      Password: CreateHash("root12345"),  
+    }
+  })
+
   console.log(
     `Create::\n\n ${JSON.stringify(employeeis)}\n\n ${JSON.stringify(
       categorys
-    )}`
+    )}\n\n
+    ${JSON.stringify(client)}`
   );
 }
 
